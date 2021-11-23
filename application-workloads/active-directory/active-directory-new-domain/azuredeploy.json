@@ -154,7 +154,7 @@
             "name": "[parameters('networkInterfaceName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "VNet",
+                "VNet"
             ],
             "properties": {
                 "ipConfigurations": [
