@@ -1,16 +1,5 @@
 # 301-nested-vms-in-virtual-network
 
-![Azure Public Test Date](https://azurequickstartsservice.blob.core.windows.net/badges/demos/nested-vms-in-virtual-network/PublicLastTestDate.svg)
-![Azure Public Test Result](https://azurequickstartsservice.blob.core.windows.net/badges/demos/nested-vms-in-virtual-network/PublicDeployment.svg)
-
-![Azure US Gov Last Test Date](https://azurequickstartsservice.blob.core.windows.net/badges/demos/nested-vms-in-virtual-network/FairfaxLastTestDate.svg)
-![Azure US Gov Last Test Result](https://azurequickstartsservice.blob.core.windows.net/badges/demos/nested-vms-in-virtual-network/FairfaxDeployment.svg)
-
-![Best Practice Check](https://azurequickstartsservice.blob.core.windows.net/badges/demos/nested-vms-in-virtual-network/BestPracticeResult.svg)
-![Cred Scan Check](https://azurequickstartsservice.blob.core.windows.net/badges/demos/nested-vms-in-virtual-network/CredScanResult.svg)
-
-![Bicep Version](https://azurequickstartsservice.blob.core.windows.net/badges/demos/nested-vms-in-virtual-network/BicepVersion.svg)
-
 This template will automate the deployment of a Virtual Machine to be a Hyper-V Host to be used for nested virtualization. Nested Virtual Machines will be able to communicate out to the internet and to other resources on your network.
 
 The setup is completed based on the procedure from the article [Nested VMs in Azure Virtual Networks](https://docs.microsoft.com/en-gb/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network)
@@ -27,9 +16,9 @@ This template creates the following resources by default:
 
 Click the button below to deploy from the portal:
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fnested-vms-in-virtual-network%2Fazuredeploy.json)  
-[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fnested-vms-in-virtual-network%2Fazuredeploy.json)
-[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fnested-vms-in-virtual-network%2Fazuredeploy.json)
+[![Deploy To Azure](https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Faz140mp%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fnested-vms-in-virtual-network%2Fazuredeploy.json)  
+[![Deploy To Azure US Gov](https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Faz140mp%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fnested-vms-in-virtual-network%2Fazuredeploy.json)
+[![Visualize](https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Faz140mp%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fnested-vms-in-virtual-network%2Fazuredeploy.json)
 
 
 
