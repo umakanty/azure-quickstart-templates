@@ -30,13 +30,6 @@
         "description": "Location for all resources."
       }
     },
-    "HostPublicIPAddressName": {
-      "type": "string",
-      "defaultValue": "HVHOSTPIP",
-      "metadata": {
-        "description": "Resource Name for Public IP address attached to Hyper-V Host"
-      }
-    },
     "virtualNetworkName": {
       "type": "string",
       "defaultValue": "VirtualNetwork",
@@ -186,21 +179,6 @@
     "HVHostSetupScriptUri": "[uri(parameters('_artifactsLocation'), format('hvhostsetup.ps1{0}', parameters('_artifactsLocationSasToken')))]"
   },
   "resources": [
-    {
-      "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2021-02-01",
-      "name": "[parameters('HostPublicIPAddressName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Basic"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "Dynamic",
-        "dnsSettings": {
-          "domainNameLabel": "[toLower(format('{0}-{1}', parameters('HostVirtualMachineName'), uniqueString(resourceGroup().id)))]"
-        }
-      }
-    },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2021-02-01",
@@ -419,9 +397,6 @@
           },
           "subnetId": {
             "value": "[format('{0}/subnets/{1}', resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName')), parameters('NATSubnetName'))]"
-          },
-          "pipId": {
-            "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('HostPublicIPAddressName'))]"
           }
         },
         "template": {
@@ -482,8 +457,7 @@
                       "privateIPAddress": "[parameters('staticIpAddress')]",
                       "subnet": {
                         "id": "[parameters('subnetId')]"
-                      },
-                      "publicIPAddress": "[if(equals(parameters('pipId'), ''), null(), createObject('id', parameters('pipId')))]"
+                      }
                     }
                   }
                 ],
@@ -504,7 +478,6 @@
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('HostPublicIPAddressName'))]",
         "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]"
       ]
     },
@@ -589,8 +562,7 @@
                       "privateIPAddress": "[parameters('staticIpAddress')]",
                       "subnet": {
                         "id": "[parameters('subnetId')]"
-                      },
-                      "publicIPAddress": "[if(equals(parameters('pipId'), ''), null(), createObject('id', parameters('pipId')))]"
+                      }
                     }
                   }
                 ],
@@ -638,9 +610,6 @@
           },
           "subnetId": {
             "value": "[format('{0}/subnets/{1}', resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName')), parameters('NATSubnetName'))]"
-          },
-          "pipId": {
-            "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('HostPublicIPAddressName'))]"
           }
         },
         "template": {
@@ -701,8 +670,7 @@
                       "privateIPAddress": "[parameters('staticIpAddress')]",
                       "subnet": {
                         "id": "[parameters('subnetId')]"
-                      },
-                      "publicIPAddress": "[if(equals(parameters('pipId'), ''), null(), createObject('id', parameters('pipId')))]"
+                      }
                     }
                   }
                 ],
@@ -724,7 +692,6 @@
       },
       "dependsOn": [
         "[resourceId('Microsoft.Resources/deployments', 'createNic1')]",
-        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('HostPublicIPAddressName'))]",
         "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]"
       ]
     },
@@ -815,8 +782,7 @@
                       "privateIPAddress": "[parameters('staticIpAddress')]",
                       "subnet": {
                         "id": "[parameters('subnetId')]"
-                      },
-                      "publicIPAddress": "[if(equals(parameters('pipId'), ''), null(), createObject('id', parameters('pipId')))]"
+                      }
                     }
                   }
                 ],
