@@ -196,7 +196,7 @@
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "2016-Datacenter",
+                        "sku": "2022-Datacenter",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -210,7 +210,7 @@
                     "dataDisks": [
                         {
                             "name": "[concat(parameters('virtualMachineName'), '_DataDisk')]",
-                            "caching": "ReadWrite",
+                            "caching": "None",
                             "createOption": "Empty",
                             "diskSizeGB": 20,
                             "managedDisk": {
