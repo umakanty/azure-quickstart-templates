@@ -249,7 +249,7 @@
                                 "DomainName": "[parameters('domainName')]",
                                 "AdminCreds": {
                                     "UserName": "[parameters('adminUsername')]",
-                                    "Password": "PrivateSettingsRef:adminPassword"
+                                    "Password": "Pa55w.rd1234"
                                 }
                             }
                         },
