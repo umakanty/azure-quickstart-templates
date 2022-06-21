@@ -249,13 +249,13 @@
                                 "DomainName": "[parameters('domainName')]",
                                 "AdminCreds": {
                                     "UserName": "[parameters('adminUsername')]",
-                                    "Password": "Pa55w.rd1234"
+                                    "Password": "PrivateSettingsRef:AdminPassword"
                                 }
                             }
                         },
                         "protectedSettings": {
                             "Items": {
-                                "adminPassword": "[parameters('adminPassword')]"
+                                "AdminPassword": "Pa55w.rd1234"
                             }
                         }
                     }
