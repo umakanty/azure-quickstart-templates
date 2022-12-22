@@ -43,7 +43,7 @@
     {
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[parameters('virtualNetworkName')]",
-      "apiVersion": "2020-08-01",
+      "apiVersion": "2022-01-01",
       "location": "[parameters('location')]",
       "properties": {
         "addressSpace": {
@@ -51,9 +51,7 @@
             "[parameters('virtualNetworkAddressRange')]"
           ]
         },
-        "dhcpOptions": {
-          "dnsServers": "[parameters('DNSServerAddress')]"
-        },
+        "dhcpOptions": "[if(not(empty(parameters('DNSServerAddress'))), variables('dhcpOptions'), json('null'))]",
         "subnets": [
           {
             "name": "[parameters('subnetName')]",

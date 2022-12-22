@@ -108,7 +108,7 @@
     "resources": [
         {
             "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2019-03-01",
+            "apiVersion": "2022-01-01",
             "location": "[parameters('location')]",
             "name": "[parameters('availabilitySetName')]",
             "properties": {
@@ -121,7 +121,7 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-11-01",
+            "apiVersion": "2021-04-01",
             "name": "VNet",
             "properties": {
                 "mode": "Incremental",
@@ -150,7 +150,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2019-02-01",
+            "apiVersion": "2022-01-01",
             "name": "[parameters('networkInterfaceName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -173,7 +173,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2019-03-01",
+            "apiVersion": "2022-03-01",
             "name": "[parameters('virtualMachineName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -196,8 +196,8 @@
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "2019-Datacenter",
-                        "version": "17763.3131.220505"
+                        "sku": "2016-Datacenter",
+                        "version": "2016.127.20190416"
                     },
                     "osDisk": {
                         "name": "[concat(parameters('virtualMachineName'),'_OSDisk')]",
@@ -231,7 +231,7 @@
             "resources": [
                 {
                     "type": "extensions",
-                    "apiVersion": "2019-03-01",
+                    "apiVersion": "2022-03-01",
                     "name": "CreateADForest",
                     "location": "[parameters('location')]",
                     "dependsOn": [
@@ -264,7 +264,7 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-11-01",
+            "apiVersion": "2021-04-01",
             "name": "UpdateVNetDNS",
             "dependsOn": [
                 "CreateADForest"
