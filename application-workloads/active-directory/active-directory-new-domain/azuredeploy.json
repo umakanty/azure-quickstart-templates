@@ -108,7 +108,7 @@
     "resources": [
         {
             "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2022-01-01",
+            "apiVersion": "2022-03-01",
             "location": "[parameters('location')]",
             "name": "[parameters('availabilitySetName')]",
             "properties": {
