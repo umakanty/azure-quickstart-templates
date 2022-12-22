@@ -39,6 +39,11 @@
       }
     }
   },
+  "variables": {
+    "dhcpOptions": {
+      "dnsServers": "[parameters('DNSServerAddress')]"
+    }
+  },  
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
