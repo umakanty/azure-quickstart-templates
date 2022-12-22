@@ -30,30 +30,41 @@ configuration CreateADPDC
             Name = "DNS"		
         }
 
+        Script GuestAgent
+        {
+            SetScript  = {
+                Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\WindowsAzureGuestAgent' -Name DependOnService -Type MultiString -Value DNS
+                Write-Verbose -Verbose "GuestAgent depends on DNS"
+            }
+            GetScript  = { @{} }
+            TestScript = { $false }
+            DependsOn  = "[WindowsFeature]DNS"
+        }
+
         Script EnableDNSDiags
-	    {
+        {
       	    SetScript = { 
 		        Set-DnsServerDiagnostics -All $true
                 Write-Verbose -Verbose "Enabling DNS client diagnostics" 
             }
             GetScript =  { @{} }
             TestScript = { $false }
-	        DependsOn = "[WindowsFeature]DNS"
+	    DependsOn = "[WindowsFeature]DNS"
         }
 
-	    WindowsFeature DnsTools
-	    {
-	        Ensure = "Present"
+	WindowsFeature DnsTools
+	{
+	    Ensure = "Present"
             Name = "RSAT-DNS-Server"
             DependsOn = "[WindowsFeature]DNS"
-	    }
+	}
 
         xDnsServerAddress DnsServerAddress 
         { 
             Address        = '127.0.0.1' 
             InterfaceAlias = $InterfaceAlias
             AddressFamily  = 'IPv4'
-	        DependsOn = "[WindowsFeature]DNS"
+	    DependsOn = "[WindowsFeature]DNS"
         }
 
         xWaitforDisk Disk2
@@ -73,7 +84,7 @@ configuration CreateADPDC
         { 
             Ensure = "Present" 
             Name = "AD-Domain-Services"
-	        DependsOn="[WindowsFeature]DNS" 
+	    DependsOn="[WindowsFeature]DNS" 
         } 
 
         WindowsFeature ADDSTools
@@ -98,7 +109,7 @@ configuration CreateADPDC
             DatabasePath = "F:\NTDS"
             LogPath = "F:\NTDS"
             SysvolPath = "F:\SYSVOL"
-	        DependsOn = @("[xDisk]ADDataDisk", "[WindowsFeature]ADDSInstall")
+	    DependsOn = @("[xDisk]ADDataDisk", "[WindowsFeature]ADDSInstall")
         } 
 
    }
