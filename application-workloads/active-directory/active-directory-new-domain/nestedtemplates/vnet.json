@@ -45,7 +45,6 @@
             "[parameters('virtualNetworkAddressRange')]"
           ]
         },
-        "dhcpOptions": "[if(not(empty(parameters('DNSServerAddress'))), variables('dhcpOptions'), json('null'))]",
         "subnets": [
           {
             "name": "[parameters('subnetName')]",
