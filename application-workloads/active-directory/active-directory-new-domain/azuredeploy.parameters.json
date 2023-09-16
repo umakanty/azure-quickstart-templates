@@ -13,9 +13,6 @@
     },
     "dnsPrefix": {
       "value": "GEN-UNIQUE"
-    },
-    "_artifactsLocation": {
-      "value": "https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/"
     }
   }
 }
